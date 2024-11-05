@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BO-DNN Model Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light blue color */
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        form {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>GREEN HOUSE ENVIRONMENT CLASSIFICATION</h2>
+                <form action="/predict" method="post">
+                    <div class="form-group">
+                        <label for="soil_humidity">Soil Humidity:</label>
+                        <input type="text" name="soil_humidity" class="form-control" id="soil_humidity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="light_intensity">Light Intensity:</label>
+                        <input type="text" name="light_intensity" class="form-control" id="light_intensity" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="temperature">Temperature:</label>
+                        <input type="text" name="temperature" class="form-control" id="temperature" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="co2">CO2 Concentration:</label>
+                        <input type="text" name="co2" class="form-control" id="co2" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="air_humidity">Air Humidity:</label>
+                        <input type="text" name="air_humidity" class="form-control" id="air_humidity" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Predict</button>
+                    </div>
+                </form>
+                {% if prediction %}
+                    <h3 class="text-center">Prediction: {{ prediction }}</h3>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

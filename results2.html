@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            text-align: center;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #e0e0e0;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .back-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Prediction Results</h2>
+        <h3>Input Data:</h3>
+        <ul>
+            <li>Soil Humidity: {{ input_data['Soil Humidity'] }}</li>
+            <li>Light Intensity: {{ input_data['Light Intensity'] }}</li>
+            <li>Temperature: {{ input_data['Temperature'] }}</li>
+            <li>CO2: {{ input_data['CO2'] }}</li>
+            <li>Air Humidity: {{ input_data['Air Humidity'] }}</li>
+        </ul>
+        <h3>Prediction:</h3>
+        <p>Environment Type: {{ prediction }}</p>
+        <h3>Recommendations:</h3>
+        <ul>
+            {% for recommendation in recommendations %}
+                <li>{{ recommendation }}</li>
+            {% endfor %}
+        </ul>
+        <a href="{{ url_for('index') }}" class="back-button">Back to Main Menu</a>
+    </div>
+</body>
+</html>
